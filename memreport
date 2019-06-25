@@ -132,7 +132,7 @@ class PostmasterProcessListing(ProcessListing):
         self.memTotal = self.res_size
         self.bgProcs = []
         self.queries = defaultdict(list)
-        self.segID = int(ps_dictionary['COMMAND'].split()[-1])
+        self.segID = int(ps_dictionary['COMMAND'].split()[-1][15:])
         PostmasterProcessListing.segments[self.segID] = self
 
         # for p in PostmasterProcessListing.pending_procs[self.pid]:
