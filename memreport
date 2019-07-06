@@ -229,9 +229,7 @@ class GPDBQueryProcess(ProcessListing):
             print ps_dictionary
         super(GPDBQueryProcess, self).__init__(ps_dictionary)
         session_pattern = re.compile(r'con\d+')
-#        seg_pattern = re.compile(r'seg[\-]?\d+')
         self.session = session_pattern.search(ps_dictionary['COMMAND']).group()
-#        self.segment = int(seg_pattern.search(ps_dictionary['COMMAND']).group()[3:])
         self.segment = None
         cmd_val = re.search(r'cmd\d+', ps_dictionary['COMMAND'])
         if cmd_val:
